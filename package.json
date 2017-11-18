@@ -1,0 +1,19 @@
+{
+  "name": "kc3-firefox",
+  "version": "1.0.0",
+  "description": "The Firefox port for KC3Kai",
+  "main": "index.js",
+  "scripts": {
+    "dev": "",
+    "build": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KC3Kai/kc3-firefox.git"
+  },
+  "author": "dragonjet <jetriconew@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KC3Kai/kc3-firefox/issues"
+  }
+}
