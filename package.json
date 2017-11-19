@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "",
-    "build": ""
+    "build": "webpack --config ./build/webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/KC3Kai/kc3-firefox/issues"
+  },
+  "devDependencies": {
+    "webpack": "^3.8.1"
   }
 }
