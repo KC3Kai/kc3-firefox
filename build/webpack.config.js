@@ -9,11 +9,16 @@ module.exports = {
   entry: {
     service: ['./src/service/index.js'],
     dmm: ['./src/content/dmm.js'],
+    netgame: ['./src/content/netgame.js'],
     osapi: ['./src/content/osapi.js']
   },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'release')
+  },
+  resolve: {
+    alias: {
+    }
   },
   module: {
     rules: [
@@ -43,11 +48,26 @@ module.exports = {
         ],
         include: [ path.resolve(__dirname, "../src/content/themes") ]
       },
+      { // Logo
+        test: /\.(png|jpg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              useRelativePath: true,
+              emitFile: false
+            }
+          }
+        ],
+        include: [ path.resolve(__dirname, "../src/content/assets/logo") ]
+      },
       { // Images
         test: /\.(png|jpg)$/,
         use: [
           { loader: 'file-loader', options: { outputPath: 'assets/' } }
-        ]
+        ],
+        exclude: [ path.resolve(__dirname, "../src/content/assets/logo") ]
       }
     ]
   },
@@ -55,6 +75,7 @@ module.exports = {
     new CleanWebpackPlugin(['./release','./release.zip']),
     new CopyWebpackPlugin([
       { from: './src/manifest.json', to: 'manifest.json' },
+      { from: './src/content/assets/logo', to: 'assets/logo' }
     ]),
     new ZipPlugin({
       path: '../',
