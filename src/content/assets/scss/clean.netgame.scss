@@ -1,0 +1,38 @@
+body {
+  margin:0;
+  padding:0;
+  min-width:0;
+  min-height:0;
+  background:#353535;
+
+  #main-ntg {
+    position: 'static';
+  }
+
+  #area-game {
+    padding: 0;
+    width: 800px;
+    height: 480px;
+    position: absolute;
+    top:50px;
+    left:100px;
+    overflow: hidden;
+  }
+
+  #game_frame {
+    width: 800px;
+    height: 480px;
+  }
+
+  .dmm-ntgnavi,
+  .area-naviapp,
+  #ntg-recommend,
+  #foot { display:none; }
+
+  #w, #main-ntg, #page {
+    margin:0;
+    padding:0;
+    width: 100%;
+    height:0;
+  }
+}

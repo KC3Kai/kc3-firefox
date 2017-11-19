@@ -1,1 +1,1 @@
-console.log('KC3改 Firefox OSAPI')
+import './assets/scss/clean.osapi.scss'
