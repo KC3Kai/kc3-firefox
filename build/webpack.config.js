@@ -18,6 +18,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      '@KC3': path.resolve(__dirname, '../KC3Kai')
     }
   },
   module: {
