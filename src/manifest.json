@@ -1,13 +1,56 @@
 {
-	"manifest_version": 2,
-	"name": "KC3改 Firefox",
-	"short_name": "kc3-firefox",
-	"description": "The Firefox port for KC3Kai",
-	"version": "0.1.0",
-	"icons": {},
-	"browser_action": {},
-	"permissions": [
-		"webRequest",
-		"<all_urls>"
-	]
+  "manifest_version": 2,
+  "name": "KC3改 Firefox",
+  "short_name": "kc3-firefox",
+  "description": "The Firefox port for KC3Kai",
+  "version": "0.1.0",
+  "author": "dragonjet",
+  "icons": {
+    "16": "assets/logo/16.png",
+    "19": "assets/logo/19.png",
+    "32": "assets/logo/32.png",
+    "38": "assets/logo/38.png",
+    "48": "assets/logo/48.png",
+    "64": "assets/logo/64.png",
+    "96": "assets/logo/128.png",
+    "128": "assets/logo/128.png"
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": {
+      "16": "assets/logo/16.png",
+      "32": "assets/logo/32.png"
+    },
+    "default_title": "KC3改"
+  },
+  "permissions": [
+    "webRequest",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["service.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.dmm.com/*"],
+      "js": ["dmm.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["*://www.dmm.com/netgame/*/app_id=854854*"],
+      "js": ["netgame.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["*://osapi.dmm.com/gadgets/*aid=854854*"],
+      "js": ["osapi.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "applications": {
+    "gecko": {
+      "strict_min_version": "57.0a1"
+    }
+  }
 }

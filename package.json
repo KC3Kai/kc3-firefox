@@ -4,7 +4,7 @@
   "description": "The Firefox port for KC3Kai",
   "main": "index.js",
   "scripts": {
-    "dev": "",
+    "dev": "webpack --config ./build/webpack.config.js --watch",
     "build": "webpack --config ./build/webpack.config.js"
   },
   "repository": {
