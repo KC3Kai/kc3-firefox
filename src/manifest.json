@@ -1,0 +1,13 @@
+{
+	"manifest_version": 2,
+	"name": "KC3改 Firefox",
+	"short_name": "kc3-firefox",
+	"description": "The Firefox port for KC3Kai",
+	"version": "0.1.0",
+	"icons": {},
+	"browser_action": {},
+	"permissions": [
+		"webRequest",
+		"<all_urls>"
+	]
+}
