@@ -18,7 +18,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@KC3': path.resolve(__dirname, '../KC3Kai')
+      'vue$': 'vue/dist/vue.esm.js',
+      '@KC3': path.resolve(__dirname, '../KC3Kai'),
+      '@src': path.resolve(__dirname, '../src'),
+      '@widgets': path.resolve(__dirname, '../src/content/widgets')
     }
   },
   module: {
@@ -69,7 +72,13 @@ module.exports = {
           { loader: 'file-loader', options: { outputPath: 'assets/' } }
         ],
         exclude: [ path.resolve(__dirname, "../src/content/assets/logo") ]
-      }
+      },
+      { // Vue Components
+        test: /\.vue$/,
+        use: {
+          loader: 'vue-loader'
+        }
+      },
     ]
   },
   plugins: [
@@ -82,6 +91,12 @@ module.exports = {
       path: '../',
       filename: 'release.zip',
     }),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin({
+      template: 'build/template.html',
+      chunks: ['dmm','netgame']
+      /*files: {
+        js: [ "netgame.js", "dmm.js"],
+      }*/
+    })
   ]
 }
