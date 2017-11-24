@@ -1,7 +1,6 @@
 <template>
-  <widget x="10" y="50" w="200" h="300" minw="150" minh="150">
-    <h1>GAME VUE</h1>
-    game vue content
+  <widget x="10" y="50" w="800" h="480" minw="400" minh="240">
+    <div ref="gamebox"></div>
   </widget>
 </template>
 
@@ -19,6 +18,8 @@ export default {
   },
   mounted: function () {
     console.log('widget.vue root', this.$root.name)
+    console.log('this.$refs', this.$refs.gamebox)
+    this.$refs.gamebox.append(document.getElementById("area-game"))
   }
 }
 </script>

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="layoutingBox">
+    <div v-bind:style="{ visibility: this.boxMoveableVisibility }">
       <MoveableWidget :w="parseInt(this.w)" :h="parseInt(this.h)" :minw="parseInt(this.minw)" :minh="parseInt(this.minh)" :grid="[5,5]" v-on:dragging="moveOngoing" v-on:resizing="moveOngoing">
-        <div style="width:100%; height:100%; background:#a5a5a5; box-sizing:border-box; border:1px inset #7c7c7c;"></div>
+        <div class="box-moveable"></div>
       </MoveableWidget>
     </div>
-    <div class="actualContent" v-show="!isLayouting" v-bind:style="inlineStyle">
+    <div class="box-content" v-bind:style="{ left, top, width, height, visibility: this.boxContentVisibility }">
       <slot></slot>
     </div>
   </div>
@@ -19,33 +19,28 @@ export default {
   data () {
     return {
       isLayouting: false,
-      inlineStyle: {
-        position: 'absolute',
-        overflow: 'hidden',
-        'box-sizing': 'border-box',
-        background: '#ccf',
-        left: this.x,
-        top: this.y,
-        width: this.w,
-        height: this.h
-      }
+      left: this.x,
+      top: this.y,
+      width: this.w,
+      height: this.h
     }
+  },
+  computed: {
+    boxMoveableVisibility: function() { return this.isLayouting ? 'visible' : 'hidden' },
+    boxContentVisibility: function() { return this.isLayouting ? 'hidden' : 'visible' }
   },
   methods: {
     moveOngoing: function(x, y, w, h) {
-      this.inlineStyle.left = x + 'px'
-      this.inlineStyle.top = y + 'px'
-      if (typeof w != 'undefined') this.inlineStyle.width = w + 'px'
-      if (typeof h != 'undefined') this.inlineStyle.height = h + 'px'
+      this.left = x + 'px'
+      this.top = y + 'px'
+      if (typeof w != 'undefined') this.width = w + 'px'
+      if (typeof h != 'undefined') this.height = h + 'px'
     }
   },
   mounted: function () {
-    // this.inlineStyle.left = this.x + 'px'
-    // this.inlineStyle.top = this.y + 'px'
-    // this.inlineStyle.width = this.w + 'px'
-    // this.inlineStyle.height = this.h + 'px'
     this.$root.$on('startLayouting', () => {
       this.isLayouting = true
+      this.$forceUpdate()
     })
     this.$root.$on('stopLayouting', () => {
       this.isLayouting = false
@@ -57,3 +52,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.box-moveable {
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  box-sizing: border-box;
+  border: 1px solid #c0c0c0;
+}
+.box-content {
+  position: absolute;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+</style>
