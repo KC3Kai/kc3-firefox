@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-bind:style="{ visibility: this.boxMoveableVisibility }">
-      <MoveableWidget :w="parseInt(this.w)" :h="parseInt(this.h)" :minw="parseInt(this.minw)" :minh="parseInt(this.minh)" :grid="[5,5]" v-on:dragging="moveOngoing" v-on:resizing="moveOngoing">
+      <MoveableWidget :w="parseInt(this.w)" :h="parseInt(this.h)" :minw="parseInt(this.minw)" :minh="parseInt(this.minh)" :draggable="this.isDraggable" :resizable="this.isResizable" :grid="[5,5]" v-on:dragging="moveOngoing" v-on:resizing="moveOngoing">
         <div class="box-moveable"></div>
       </MoveableWidget>
     </div>
@@ -14,15 +14,16 @@
 <script>
 import VueDraggableResizable from 'vue-draggable-resizable'
 export default {
-  name: 'WidgetBase',
-  props: [ 'x', 'y', 'w', 'h', 'minw', 'minh' ],
+  props: [ 'x', 'y', 'w', 'h', 'minw', 'minh', 'r', 'd' ],
   data () {
     return {
       isLayouting: false,
       left: this.x,
       top: this.y,
       width: this.w,
-      height: this.h
+      height: this.h,
+      isResizable: typeof this.r == 'undefined' ? true : this.r,
+      isDraggable: typeof this.d == 'undefined' ? true : this.d
     }
   },
   computed: {

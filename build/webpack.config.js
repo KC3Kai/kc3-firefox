@@ -30,7 +30,18 @@ module.exports = {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
-          options: { presets: ['@babel/preset-env'] }
+          options: {
+            presets: [
+              ['@babel/preset-env', {
+                targets: {
+                  browsers: ['Firefox >= 57']
+                }
+              }]
+            ],
+            plugins: [
+              "syntax-dynamic-import"
+            ]
+          }
         },
         exclude: /(node_modules|bower_components)/
       },

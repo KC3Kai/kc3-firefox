@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import WidgetGame from '@widgets/game.vue'
+import WidgetGame from '@widgets/game/game.vue'
 
 // Vue.component('widget', VueDraggableResizable)
 
