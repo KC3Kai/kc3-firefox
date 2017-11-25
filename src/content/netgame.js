@@ -1,9 +1,10 @@
-console.log('Thank you for choosing KC3改 on Firefox!')
-
 // Apply global styles
 import './assets/scss/clean.netgame.scss'
-import './assets/scss/layout.scss'
+import './assets/scss/playspace.scss'
 
-// Create viewport for KC3 layout and start layout feature
-import './scripts/create-viewport'
-import './scripts/start-layout'
+// Create viewport for KC3 layout
+import Playspace from '@content/library/playspace'
+new Playspace()
+  .create()
+  .moveTo()
+  .start()

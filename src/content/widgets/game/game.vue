@@ -6,16 +6,14 @@
 </template>
 
 <script>
-import WidgetBase from '../widget.vue'
+import MovableWidget from '@components/MovableWidget.vue'
 export default {
   data: function () {
     return {
 
     }
   },
-  components: {
-    widget: WidgetBase
-  },
+  components: { widget: MovableWidget },
   mounted: function () {
     this.$refs.gamebox.append(document.getElementById("area-game"))
   }
