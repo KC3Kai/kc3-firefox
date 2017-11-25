@@ -1,1 +1,2 @@
-import '@KC3/src/library/injections/cookie'
+import RegionCookies from './modules/region-cookies'
+new RegionCookies.write()
