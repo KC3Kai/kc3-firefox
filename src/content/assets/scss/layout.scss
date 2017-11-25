@@ -1,0 +1,17 @@
+
+/**
+ * HANDLES
+ * Overrides the resize handles for moveable widgets
+ */
+.handle {
+  width:7px !important;
+  height:7px !important;
+}
+.handle-tl { top:-5px !important; left:-5px !important; }
+.handle-tm { top:-5px !important; }
+.handle-tr { top:-5px !important; right:-5px !important; }
+.handle-mr { right:-5px !important; }
+.handle-br { bottom:-5px !important; right:-5px !important; }
+.handle-bm { bottom:-5px !important; }
+.handle-bl { bottom:-5px !important; left:-5px !important; }
+.handle-ml { left:-5px !important; }
