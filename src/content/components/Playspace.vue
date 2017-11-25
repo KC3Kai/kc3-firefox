@@ -3,9 +3,8 @@
 </template>
 
 <script>
-import game from './game/game.vue'
+import game from '@widgets/game/game.vue'
 export default {
-  el: '#kc3viewport',
   data () {
     return {
       layoutingMode: false,

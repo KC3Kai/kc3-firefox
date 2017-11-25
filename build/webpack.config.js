@@ -21,7 +21,10 @@ module.exports = {
       'vue$': 'vue/dist/vue.esm.js',
       '@KC3': path.resolve(__dirname, '../KC3Kai'),
       '@src': path.resolve(__dirname, '../src'),
-      '@widgets': path.resolve(__dirname, '../src/content/widgets')
+      '@content': path.resolve(__dirname, '../src/content'),
+      '@components': path.resolve(__dirname, '../src/content/components'),
+      '@widgets': path.resolve(__dirname, '../src/content/widgets'),
+      '@service': path.resolve(__dirname, '../src/service')
     }
   },
   module: {

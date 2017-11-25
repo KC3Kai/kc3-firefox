@@ -1,2 +1,3 @@
-import RegionCookies from './modules/region-cookies'
-new RegionCookies.write()
+// Write region cookies throughout DMM website
+import RegionCookies from './library/region-cookies'
+RegionCookies.write()
