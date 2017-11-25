@@ -1,7 +1,7 @@
 {
   "name": "kc3-firefox",
   "version": "1.0.0",
-  "description": "The Firefox port for KC3Kai",
+  "description": "The Firefox port for KC3",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --config ./build/webpack.config.js --watch",

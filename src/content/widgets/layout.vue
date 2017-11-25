@@ -1,5 +1,5 @@
 <template>
-  <game v-if="this.enabledWidgets.indexOf('game')"></game>
+  <game v-if="this.enabledWidgets.indexOf('game') > -1"></game>
 </template>
 
 <script>
@@ -9,7 +9,9 @@ export default {
   data () {
     return {
       layoutingMode: false,
-      enabledWidgets: []
+      enabledWidgets: [
+        'game'
+      ]
     }
   },
   components: {
