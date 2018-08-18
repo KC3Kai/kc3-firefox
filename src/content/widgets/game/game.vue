@@ -1,5 +1,5 @@
 <template>
-  <widget x="10" y="50" w="800" h="480" minw="400" minh="240" :r="false">
+  <widget x="10" y="50" w="1200" h="720" minw="400" minh="240" :r="false">
     <div id="kc3-overlays"></div>
     <div id="kc3-gamebox" ref="gamebox"></div>
   </widget>
